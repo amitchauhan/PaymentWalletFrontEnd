@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+margin: 0;
+padding: 0;
+height:1000px;
+}
+.App{
+color: #f5f0ef;
+text-align: center;
+}
+.footer {
+background-color: rgb(137, 28, 201);
+border-top:2px solid red;
+position: fixed;
+width: 100%;
+height: 4rem;
+bottom: 0;
+color: white;
+font-size: 25px;
+}

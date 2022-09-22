@@ -1,0 +1,28 @@
+{
+  "register": [
+    {
+      "email": "abc@12.com",
+      "name": "john",
+      "address": "delhi",
+      "cardno": "12345678",
+      "mobno": "9876543212",
+      "password": "12345",
+      "id": 1
+    },
+    {
+      "email": "22amit08@gmail.com",
+      "password": "amit1234",
+      "id": 2
+    },
+    {
+      "email": "22amit08@gmail.com",
+      "password": "amit1234",
+      "id": 3
+    },
+    {
+      "email": "abcd@1234.com",
+      "password": "abcd",
+      "id": 4
+    }
+  ]
+}
