@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+// import {Link} from 'react-router-dom';
 
 
 
@@ -32,7 +33,7 @@ export default function Header() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-       <Button onClick={goToHome}><img src='https://www.designmantic.com/blog/wp-content/uploads/2017/09/natwest-logo.jpg' alt='Natwest logo'  height="80" width="80"/></Button>
+       <Button onClick={goToHome}><img src='https://www.designmantic.com/blog/wp-content/uploads/2017/09/natwest-logo.jpg' alt='Natwest logo'  height="80" width="80" style={{borderRadius:  20}}/></Button>
           <IconButton
             size="large"
             edge="start"

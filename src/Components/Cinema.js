@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Button } from '@mui/material';
-
+import {Link} from 'react-router-dom';
 
 export default function Cinema () {
     const [count, setCount] = useState(0);
@@ -12,19 +12,14 @@ export default function Cinema () {
     },[count]); 
     
     
-
-
-    
-    function bookTickets(event) {
-        alert("You will now be directed to payments page");
-        event.preventDefault();
-        window.location.replace("/makepayment");
-    }
     const [value,setValue] = useState('Brahamastra');
     const handleChange =(event) => {
         setValue(event.target.value);
     }
 
+    function alertPayment() {
+        alert("You will now be directed to payment page..")
+    }
     return (
       
         <div>
@@ -37,6 +32,7 @@ export default function Cinema () {
                 </select>
                 </label>
                 <p>My Movie: {value}</p>
+                <p>Price Per Ticke: INR 250</p>
             
             <Button variant='contained' onClick={() =>{setCount(count + 1)}}>Add Tickets</Button>
             
@@ -47,7 +43,7 @@ export default function Cinema () {
             <p>Please refresh page to reset tickets</p>
             </div>
             
-            <Button variant='contained' type="btn" onClick={bookTickets} >Submit</Button>
+           <Link to="/makepayment" > <Button variant='contained' type="btn" onClick={alertPayment}>Submit</Button></Link>
             
             </div>
         

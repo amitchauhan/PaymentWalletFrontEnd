@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Button } from '@mui/material';
+import {Link} from 'react-router-dom';
 
 export default function SpotCash() {
 
@@ -13,21 +14,20 @@ export default function SpotCash() {
     const [data, setData] = useState ("INR");
 
     const handleCurrency = (event) => {
-            setData(event.taget.value);
+            setData(event.target.value);
     }
 
-    const goToPayment= (event) => {
-        alert("You will now be directed to payments page");
-        event.preventDefault();
-        window.location.replace("/makepayment");
-    }
+  
     
+    function alertPayment() {
+        alert("You will now be directed to payment page..")
+    }
 
     return (
         <div>
             <h3>Buy currency</h3>
             
-            <form action='/home' onSubmit={goToPayment}>
+            <form >
                 <div>
                 <label>Location: 
                 <select value={value} onChange={handleChange}>
@@ -53,7 +53,7 @@ export default function SpotCash() {
             <div>
                 <label>Amount:</label>
                 <input type="text"></input><br/><br/>
-                <Button variant='contained' type="submit">Submit</Button>
+                <Link to="/makepayment"><Button variant='contained' type="submit" onClick={alertPayment}>Submit</Button></Link>
             </div>
             </form>
     

@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { Box } from '@mui/system';
 import { Button } from '@mui/material';
 import Instrcut from './Instruct';
+import FormLabel from '@mui/material/FormLabel';
+import {Link} from 'react-router-dom';
+
 
 
 export default function Login() {
@@ -16,7 +19,7 @@ export default function Login() {
 
     let email = document.getElementById("email").value;
     let password = document.getElementById("pwd").value;
-    let regem = /^([a-zA-Z0-9.-]+)@([a-zA-Z0-9-]+).([a-zA-Z]{2,8})(.[a-z]{2,8})?$/;
+    let regem = /^([a-zA-Z0-9.-]{3})@([a-zA-Z0-9-]+).([a-zA-Z]{2,8})(.[a-z]{2,8})?$/;
     let regpass = /[a-z0-9]+/i;
     let flag = 0;
 
@@ -27,6 +30,7 @@ export default function Login() {
     else {
       document.getElementById("emailerror").innerHTML = "Incorrect Email";
       flag = 0;
+      event.preventDefault();
       
     }
     if (regpass.test(password)) {
@@ -37,6 +41,7 @@ export default function Login() {
     else {
       document.getElementById("passerror").innerHTML= "Incorrect Password";
       flag= 0;
+      event.preventDefault();
       
     }
     if (flag) {
@@ -55,27 +60,28 @@ export default function Login() {
   const [logind,setLogind] = useState([]);
 
   useEffect(() => {
-    console.log("data not found")
-},[logind]);
+    console.log("useEffect here")
+},[]);
 
 
     const matchLogin =(event) => {
       axios.get("http://localhost:3001/register")
     .then((resp) => {
       console.log(resp);
-      setLogind(resp.data)
+      setLogind(resp.data);
     }).catch((error) => document.write("can't fetch data"));
 
-  
     
-      if (document.getElementById("email") === logind.email) {
+      if (document.getElementById("email") === logind[0].email ) {
+        console.log(logind[0].email);
         document.getElementById("emailmatch").innerHTML= "email matched from database";
       }
       else {
         document.getElementById("emailmatch").innerHTML= "email not found in database";
       }
       
-      if(document.getElementById("pwd") === logind.password) {
+      if(document.getElementById("pwd") === logind[0].password ) {
+        console.log(logind[0].password);
         document.getElementById("passmatch").innerHTML= "password matched from database";
       }
       else {
@@ -92,18 +98,18 @@ export default function Login() {
 
       
         
-        <Box style={{backgroundColor:"purple", color:"white"}}>
+        <Box style={{backgroundColor: "rgb(137, 28, 201)", color:"white"}}>
             <Instrcut/>
             
-            <form onSubmit= {LoginValidate} action="/makepurchase">
+            <form>
   <div className="mb-3 mt-3">
-    <label for="email" className="form-label">Email:</label>
+    <FormLabel style={{color:"white"}}>Email:</FormLabel>
     <input type="email" className="form-control" id="email" placeholder="Enter email" name="email" style={{backgroundColor:"pink"}}/>
     <label id="emailerror" style={{color:"red"}}></label><br></br>
     <label id="emailmatch" ></label><br></br>
   </div>
   <div className="mb-3">
-    <label for="pwd" className="form-label">Password:</label>
+    <FormLabel style={{color:"white"}}>Password:</FormLabel>
     <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd" style={{backgroundColor:"pink"}}/>
     <label id="passerror" style={{color:"red"}} ></label><br></br>
     <label id="passmatch" ></label><br></br>
@@ -114,8 +120,8 @@ export default function Login() {
     </label>
   </div>
   
-  <Button type="submit" variant="contained" >Submit</Button>
-  <Button variant='contained' onClick={matchLogin}>show result</Button>
+  <Link to="/makepurchase" onClick={LoginValidate}><Button type="submit" variant="contained" >Submit</Button></Link>
+  {/* <Button variant='contained' onClick={matchLogin}>show result</Button> */}
   
 </form>
         </Box>

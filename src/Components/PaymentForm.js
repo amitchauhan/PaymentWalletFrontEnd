@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import { ImageList, Typography } from '@mui/material';
 import ImageListItem from '@mui/material/ImageListItem';
 import Button from '@mui/material/Button';
+import {Link} from 'react-router-dom';
 
 
 
@@ -27,12 +28,9 @@ export default function PaymentForm() {
         },
       ];
     
-      function paymentComplete(event) {
-        alert("Your payment has been completed! You will now be directed to Purchase Section");
-        event.preventDefault();
-        window.location.replace("/makepurchase");
-      }
-
+     function alertPurchase() {
+      alert("Your transaction is completed. You will now be directed to Purchase Section..")
+     }
      
     
   return (
@@ -47,7 +45,7 @@ noValidate
 autoComplete="off"
 >
 
-<ImageList sx={{ width: "300", height: "135 " }} cols={3} rowHeight={200}>
+<ImageList sx={{ width: "100", height: "20rem" }} cols={3} rowHeight={200}>
     {itemData.map((item) => (
       <ImageListItem key={item.img}>
         <img
@@ -89,15 +87,22 @@ autoComplete="off"
           required
           id="outlined-required"
           label="Required"
-          defaultValue="Date-Of-Birth"
+          defaultValue="Date-Of-Birth(dd-mm-yyyy)"
+        />
+
+<TextField
+          required
+          id="outlined-required"
+          label="Required"
+          defaultValue="Amount"
         />
     
         
       </div>
       <Typography>All details shared by you will be kept secure. Please fill above details to complete payment</Typography>
-      <Button variant="contained" size="large" onClick={paymentComplete}>
+     <Link to='/makepurchase'> <Button variant="contained" size="large" onClick={alertPurchase}>
           Make Payment
-        </Button>
+        </Button></Link>
 
           </Box>
   );
