@@ -20,10 +20,17 @@ export default function Cinema () {
     function alertPayment() {
         alert("You will now be directed to payment page..")
     }
+
+    const myStyle={
+        color:"white",
+        backgroundImage:"url('https://th.bing.com/th/id/OIP.AioDCH3cwN6xgqzRU8IZdwHaDt?pid=ImgDet&rs=1')",
+        backgroundRepeat:"no-repeat",
+        backgroundSize:"cover"
+      }
     return (
       
-        <div>
-            <h2>Book your tickets below</h2>
+        <div style={myStyle}>
+            <h2>Book your tickets</h2>
             <label>Movies: 
                 <select value={value} onChange={handleChange}>
                     <option value="Brahamastra">Brahamastra</option>
@@ -32,7 +39,7 @@ export default function Cinema () {
                 </select>
                 </label>
                 <p>My Movie: {value}</p>
-                <p>Price Per Ticke: INR 250</p>
+                <p>Price for latest movie: INR 250</p>
             
             <Button variant='contained' onClick={() =>{setCount(count + 1)}}>Add Tickets</Button>
             
@@ -43,7 +50,7 @@ export default function Cinema () {
             <p>Please refresh page to reset tickets</p>
             </div>
             
-           <Link to="/makepayment" > <Button variant='contained' type="btn" onClick={alertPayment}>Submit</Button></Link>
+           <Link to="/makepayment" > <Button variant='contained' type="btn" onClick={alertPayment}>Book Now</Button></Link>
             
             </div>
         

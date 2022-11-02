@@ -9,24 +9,30 @@ import {Link} from 'react-router-dom';
 export default function MakePurchase() {
 
  
+  const myStyle={
+    color:"white",
+    backgroundImage:"url('https://image.shutterstock.com/image-photo/text-sign-showing-our-services-600w-1528193291.jpg')",
+    backgroundRepeat:"no-repeat",
+    backgroundSize:"cover"
+  }
 
 
 
     return (
-      <div>
-        <div style={{color:"purple"}}>
-            <h1 >Welcome to our Purchase section</h1>
-            <h2> choose from below services</h2>  
+      <div style={myStyle}>
+        <div >
+            <h1>Welcome to our Service page</h1>
+            <h1> Please choose from below..</h1>  
             </div>
   
         <div>
           <ul>
             <li> 
               <Link to="/cinema"><Button variant='contained'>Cinema</Button></Link></li><br/>
-            <li> <Link to="/drawcash"><Button variant='contained'>SpotCash</Button></Link></li><br/>
-            <li> <Button variant='contained'  >Medicines</Button></li><br/>
-            <li> <Button variant='contained'  >Mall</Button></li><br/>
-            <li> <Button variant='contained'  >Food and Beverages</Button></li><br/>
+            <li> <Link to="/drawcash"><Button variant='contained'>Spot Cash</Button></Link></li><br/>
+            <li> <Button variant='contained'  >Malls</Button></li><br/>
+            <li> <Button variant='contained'  >Food & Beverages</Button></li><br/>
+            
         
             
           </ul>

@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 // import {Link} from 'react-router-dom';
+import LockIcon from '@mui/icons-material/Lock';
 
 
 
@@ -16,13 +17,9 @@ export default function Header() {
 
     const goToLogin = (event) => {
         event.preventDefault();
-      window.location.replace("/login");
+      window.location.replace("/loginnew");
     }
 
-    const goToRegister = (event) => {
-        event.preventDefault();
-      window.location.replace("/register");
-    }
 
     const goToHome = (event) => {
         event.preventDefault();
@@ -30,10 +27,10 @@ export default function Header() {
     }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, mb:0 }}>
       <AppBar position="static">
         <Toolbar>
-       <Button onClick={goToHome}><img src='https://www.designmantic.com/blog/wp-content/uploads/2017/09/natwest-logo.jpg' alt='Natwest logo'  height="80" width="80" style={{borderRadius:  20}}/></Button>
+       <Button onClick={goToHome}><img src='https://bankingstars.co.uk/wp-content/uploads/2020/04/Natwest.png' alt='Natwest logo'  height="80" width="80" style={{borderRadius:  20}}/></Button>
           <IconButton
             size="large"
             edge="start"
@@ -45,8 +42,7 @@ export default function Header() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Natwest Payment Wallet
           </Typography>
-          <Button color="inherit" onClick={goToLogin}>Login</Button>
-          <Button color="inherit" onClick={goToRegister}>Register</Button>
+          <Button color="inherit" onClick={goToLogin}><LockIcon></LockIcon>Login</Button>
         </Toolbar>
       </AppBar>
     </Box>

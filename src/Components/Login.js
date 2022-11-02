@@ -6,6 +6,7 @@ import { Button } from '@mui/material';
 import Instrcut from './Instruct';
 import FormLabel from '@mui/material/FormLabel';
 import {Link} from 'react-router-dom';
+import Carousel from './Carousel';
 
 
 
@@ -90,15 +91,19 @@ export default function Login() {
         
       }
     }
-
+    const myStyle={
+      backgroundImage: "url(../images/Blackpanther.jpg)",
+      height:'100vh',
+      marginTop:'-70px',
+      fontSize:'50px',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+    };
     
-    
-
     return (
-
-      
         
-        <Box style={{backgroundColor: "rgb(137, 28, 201)", color:"white"}}>
+        <Box 
+        >
             <Instrcut/>
             
             <form>
@@ -124,7 +129,9 @@ export default function Login() {
   {/* <Button variant='contained' onClick={matchLogin}>show result</Button> */}
   
 </form>
+<Carousel/>
         </Box>
+        
         
         
     )
