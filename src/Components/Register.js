@@ -136,6 +136,7 @@ export default function Register() {
     
     
     return(
+      <Box style={{backgroundColor:"lightgray", marginTop:"0"}}>
                     <ThemeProvider theme={theme}>
                 <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -230,5 +231,6 @@ export default function Register() {
                     </Box>
                     </Container>
                     </ThemeProvider>
+                    </Box>
     )
 }
